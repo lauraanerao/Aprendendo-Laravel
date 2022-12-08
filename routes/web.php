@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +33,18 @@ Route::get('posts/create', [PostController::class, 'create']);
 Route::get('posts/edit', [PostController::class, 'edit']);
 Route::post('posts/store', [PostController::class, 'store']);
 Route::patch('posts/update', [PostController::class, 'update']);
-Route::delete('posts/delete', [PostController::class, 'delete']);
+Route::delete('posts/destroy', [PostController::class, 'destroy']);
+
+Route::get('tasks', [TaskController::class, 'index']);
+Route::get('tasks/create', [TaskController::class, 'create']);
+Route::post('tasks/store', [TaskController::class, 'store']);
+Route::get('tasks/edit', [TaskController::class, 'edit']);
+Route::patch('tasks/update', [TaskController::class, 'update']);
+Route::get('tasks/show', [TaskController::class, 'show']);
+Route::delete('post/destroy', [TaskController::class, 'destroy']);
+
+
+
+
+
 

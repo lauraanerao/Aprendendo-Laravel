@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -20,8 +21,10 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store() {
-
+    public function store(PostRequest $request) {
+       $data = $request->validated();
+       Post::create($data);
+       return back();
     }
 
     public function edit() {
@@ -32,7 +35,7 @@ class PostController extends Controller
         //TODO: criar método update
     }
 
-    public function delete() {
+    public function destroy() {
         //
     }
 
