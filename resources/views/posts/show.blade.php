@@ -1,22 +1,15 @@
 @extends('layout.main')
 
 @section('title')
-    Post 1
+    {{ $post->title }}
 @endsection
 
 @section('page-title')
-    Post
-@endsection
-
-@section('page-description')
-    Descrição do post
+    {{ $post->title }}
 @endsection
 
 @section('content')
     <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium beatae hic magni odit recusandae. Blanditiis cumque, dicta doloremque dolores enim, eveniet illum in inventore ipsa ipsam magnam, mollitia nisi vitae.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium beatae hic magni odit recusandae. Blanditiis cumque, dicta doloremque dolores enim, eveniet illum in inventore ipsa ipsam magnam, mollitia nisi vitae.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium beatae hic magni odit recusandae. Blanditiis cumque, dicta doloremque dolores enim, eveniet illum in inventore ipsa ipsam magnam, mollitia nisi vitae.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium beatae hic magni odit recusandae. Blanditiis cumque, dicta doloremque dolores enim, eveniet illum in inventore ipsa ipsam magnam, mollitia nisi vitae.
+        {{ $post->body }}
     </p>
 @endsection

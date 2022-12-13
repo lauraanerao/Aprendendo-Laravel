@@ -20,7 +20,7 @@
            {{ session('sucesso') }}
         @endif
 
-        <form method="post" action="store">
+        <form method="post" action="{{ route('posts.store') }}">
             @csrf
              <label for="title">Title</label>
             <input required id="title" class="form-control" name="title" value="{{ old('title') }}">

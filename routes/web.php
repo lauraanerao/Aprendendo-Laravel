@@ -16,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function(){
-    return view('index');
-});
-
 Route::get('contato', function(){
     return view('contato');
 });
@@ -27,11 +23,11 @@ Route::get('contato', function(){
 Route::get('dashboard', [DashboardController::class, 'index']);
 Route::get('dashboard/create', [DashboardController::class, 'create']);
 
-Route::get('posts', [PostController::class, 'index']);
-Route::get('posts/show', [PostController::class, 'show']);
-Route::get('posts/create', [PostController::class, 'create']);
+Route::get('/', [PostController::class, 'index']);
+Route::get('posts/show/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::get('posts/edit', [PostController::class, 'edit']);
-Route::post('posts/store', [PostController::class, 'store']);
+Route::post('posts/store', [PostController::class, 'store'])->name('posts.store');
 Route::patch('posts/update', [PostController::class, 'update']);
 Route::delete('posts/destroy', [PostController::class, 'destroy']);
 
