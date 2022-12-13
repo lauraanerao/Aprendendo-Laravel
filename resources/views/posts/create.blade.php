@@ -10,16 +10,25 @@
 
 @section('content')
     <div class="col-md-4 offset-4">
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+        @endif
+
+        @if(session('sucesso'))
+           {{ session('sucesso') }}
+        @endif
+
         <form method="post" action="store">
             @csrf
-
-            <label for="title">Title</label>
-            <input id="title" class="form-control" name="title">
+             <label for="title">Title</label>
+            <input required id="title" class="form-control" name="title" value="{{ old('title') }}">
 
             <br>
 
-            <label for="description">Description</label>
-            <textarea id="description" class="form-control" rows="8" name="body"></textarea>
+            <label for="body">Description</label>
+            <textarea required id="body" class="form-control" rows="8" name="body">{{ old('body') }}</textarea>
 
             <br>
             <button style="width: 100%" type="submit" class="btn btn-primary">Create</button>
