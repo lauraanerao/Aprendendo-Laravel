@@ -31,8 +31,12 @@
             <textarea required id="body" class="form-control" rows="8" name="body">{{ $post->body }}</textarea>
 
             <br>
-            <button style="width: 100%" type="submit" class="btn btn-primary">Editar</button>
+            <button style="width: 100%" type="submit" class="btn btn-primary mb-2">Editar</button>
 
+        </form>
+        <form method="post" action="{{ route('posts.destroy', $post->id) }}">
+            @csrf @method('DELETE')
+            <button style="width: 100%" type="submit" class="btn btn-danger">Remover Post</button>
         </form>
     </div>
 @endsection

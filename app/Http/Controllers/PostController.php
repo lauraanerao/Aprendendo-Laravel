@@ -39,8 +39,9 @@ class PostController extends Controller
         return back()->with('sucesso', 'Post editado com sucesso!');
     }
 
-    public function destroy() {
-        //
+    public function destroy(Post $post) {
+        $post->delete();
+        return redirect(route('posts.index'))->with('sucesso', 'Post apagado com sucesso!');
     }
 
 }

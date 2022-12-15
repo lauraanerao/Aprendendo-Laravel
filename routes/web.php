@@ -23,13 +23,13 @@ Route::get('contato', function(){
 Route::get('dashboard', [DashboardController::class, 'index']);
 Route::get('dashboard/create', [DashboardController::class, 'create']);
 
-Route::get('/', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index'])->name('posts.index');
 Route::get('posts/show/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::get('posts/edit/{post}', [PostController::class, 'edit'])->name('posts.edit');
 Route::post('posts/store', [PostController::class, 'store'])->name('posts.store');
 Route::put('posts/update/{post}', [PostController::class, 'update'])->name('posts.update');
-Route::delete('posts/destroy', [PostController::class, 'destroy']);
+Route::delete('posts/destroy/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 Route::get('tasks', [TaskController::class, 'index']);
 Route::get('tasks/create', [TaskController::class, 'create']);
