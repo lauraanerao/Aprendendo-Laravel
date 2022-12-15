@@ -27,12 +27,16 @@ class PostController extends Controller
        return back()->with('sucesso', 'Post publicado com sucesso!');
     }
 
-    public function edit() {
-        return "edit";
+    public function edit(Post $post) {
+        return view('posts.edit', compact('post'));
     }
 
-    public function update() {
-        //TODO: criar método update
+    public function update(Post $post, PostRequest $request) {
+        $data = $request->validated();
+        $post->title = $data['title'];
+        $post->body = $data['body'];
+        $post->save();
+        return back()->with('sucesso', 'Post editado com sucesso!');
     }
 
     public function destroy() {

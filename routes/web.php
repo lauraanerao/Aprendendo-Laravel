@@ -26,9 +26,9 @@ Route::get('dashboard/create', [DashboardController::class, 'create']);
 Route::get('/', [PostController::class, 'index']);
 Route::get('posts/show/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
-Route::get('posts/edit', [PostController::class, 'edit']);
+Route::get('posts/edit/{post}', [PostController::class, 'edit'])->name('posts.edit');
 Route::post('posts/store', [PostController::class, 'store'])->name('posts.store');
-Route::patch('posts/update', [PostController::class, 'update']);
+Route::put('posts/update/{post}', [PostController::class, 'update'])->name('posts.update');
 Route::delete('posts/destroy', [PostController::class, 'destroy']);
 
 Route::get('tasks', [TaskController::class, 'index']);
