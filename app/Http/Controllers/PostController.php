@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
+
     public function index() {
         $posts = Post::all();
         return view('index', compact('posts'));
@@ -18,6 +22,7 @@ class PostController extends Controller
     }
 
     public function create() {
+
         return view('posts.create');
     }
 
