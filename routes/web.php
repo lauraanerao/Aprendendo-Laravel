@@ -44,3 +44,9 @@ Route::delete('post/destroy', [TaskController::class, 'destroy']);
 
 
 
+
+Auth::routes();
+
+Route::get('/home', function(){
+    return redirect(route('posts.index'));
+});
